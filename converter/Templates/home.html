@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Tailwind CSS -->
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+  <title>PDFsquare.com</title>
+  {% load static %}
+  <link rel="shortcut icon" type="image/png" href="{% static 'images/logo0.png' %}">
+  <style>
+    .nav {
+      background-color: #000;
+      color: rgba(255, 255, 255, 1);
+      letter-spacing: 2px;
+      font-weight: bold;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      padding: 10px;
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+
+    input[type="submit"],
+    .a1 {
+      background-color: #c2fbd7;
+      border-radius: 100px;
+      box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+      color: green;
+      cursor: pointer;
+      display: inline-block;
+      font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+      padding: 7px 20px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 250ms;
+      border: 0;
+      font-size: 16px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    input[type="submit"]:hover,
+    .a1:hover {
+      box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+      background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+      transform: scale(1.05) rotate(-1deg);
+    }
+  </style>
+</head>
+
+<body bgcolor="#ffd89b">
+  <div>
+    {% include 'Welcome_Navbar.html' %}
+  </div>
+  <br><br><br><br><br><br>
+  <div>
+    {% include 'Navbar.html' %}
+  </div>
+  <br><br><br>
+
+  <!--Card 1-->
+  <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2 w-full">
+    <div class="rounded overflow-hidden shadow-lg">
+      {% load static %}
+      <img class="" src="{% static '/images/pdf_to_docx.png' %}"
+        style="height:180px; width:100%; border: 3px solid #000000;" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Pdf To Word</div>
+        <p class="text-blue-700 text-base">
+          Convert <b>pdf</b> files into <b>word</b> documents.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <form action="/PDF_TO_WORD_CONVERTED/" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Convert" style="font-weight:bold;" />
+        </form>
+      </div>
+    </div>
+
+
+    <!--Card 2-->
+    <div class="rounded overflow-hidden shadow-lg">
+      {% load static %}
+      <img class="" src="{% static '/images/docx_to_pdf.png' %}"
+        style="height:180px; width:100%; border: 3px solid #000000;" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Word To Pdf</div>
+        <p class="text-blue-700 text-base">
+          Convert <b>word</b> documents into <b>pdf</b> files.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <form action="/WORD_TO_PDF_CONVERTED/" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Convert" style="font-weight:bold;" />
+        </form>
+      </div>
+    </div>
+
+
+    <!--Card 3-->
+    <div class="rounded overflow-hidden shadow-lg">
+      {% load static %}
+      <img class="" src="{% static '/images/img_to_pdf.png' %}"
+        style="height:180px; width:100%; border: 3px solid #000000;" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Image To Pdf</div>
+        <p class="text-blue-700 text-base">
+          Convert <b>jpg</b> images into <b>pdf</b> files.
+        </p>
+      </div>
+      <br>
+      <div class="px-6 pt-4 pb-2">
+        <form action="/Image_To_PDF_CONVERTED/" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Convert" style="font-weight:bold;" />
+        </form>
+      </div>
+    </div>
+
+
+    <!--Card 4-->
+    <div class="rounded overflow-hidden shadow-lg">
+      {% load static %}
+      <img class="" src="{% static '/images/pdf_to_img1.png' %}"
+        style="height:180px; width:100%; border: 3px solid #000000;" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Pdf To Image</div>
+        <p class="text-blue-700 text-base">
+          Convert each <b>pdf</b> page into an <b>jpg</b> image.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <form action="/PDF_TO_IMAGE_CONVERTED/" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Convert" style="font-weight:bold;" />
+        </form>
+      </div>
+    </div>
+
+
+    <!--Card 5-->
+    <div class="rounded overflow-hidden shadow-lg">
+      {% load static %}
+      <img class="" src="{% static '/images/pdf_compresser.png' %}"
+        style="height:180px; width:100%; border: 3px solid #000000;" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Compress Pdf</div>
+        <p class="text-blue-700 text-base">
+          Compress your <b>pdf</b> file by optimizing <b>size</b> while achieving maximum quality.
+        </p>
+        <br>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <form action="/PDF_COMPRESSED/" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Compress" style="font-weight:bold;" />
+        </form>
+      </div>
+    </div>
+
+
+
+    <!--Card 6-->
+    <div class="rounded overflow-hidden shadow-lg">
+      {% load static %}
+      <img class="" src="{% static '/images/pdf_merger.png' %}"
+        style="height:180px; width:100%; border: 3px solid #000000;" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Merge Pdf</div>
+        <p class="text-blue-700 text-base">
+          Merge <b>multiple pdf</b> files into a <b>single pdf</b> file in the sequence you want.
+        </p>
+        <br>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <div class="a1">
+          <a href="/filepicker/" style="font-weight:bold;">
+            Merge
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Card 7-->
+    <div class="rounded overflow-hidden shadow-lg">
+      {% load static %}
+      <img class="" src="{% static '/images/ppt_to_pdf.png' %}"
+        style="height:180px; width:100%; border: 3px solid #000000;" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Ppt To Pdf</div>
+        <p class="text-blue-700 text-base">
+          Convert <b>ppt</b> files into <b>pdf</b> files.
+        </p>
+      </div>
+      <br>
+      <br><br>
+      <div class="px-6 pt-4 pb-2">
+        <form action="/PPT_TO_PDF_CONVERTED/" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Convert" style="font-weight:bold;" />
+        </form>
+      </div>
+    </div>
+
+
+    <!--Card 8-->
+    <div class="rounded overflow-hidden shadow-lg">
+      {% load static %}
+      <img class="" src="{% static '/images/pdf_encrypt.png' %}"
+        style="height:180px; width:100%; border: 3px solid #000000;" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Lock Pdf</div>
+        <p class="text-blue-700 text-base">
+          Secure <b>pdf</b> file by <b>Encrypting</b> it with a password.
+        </p>
+      </div>
+      <br>
+      <br>
+      <div class="px-6 pt-4 pb-2">
+        <form action="/PDF_ENCRYPTED/" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Convert" style="font-weight:bold;" />
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <h5>&copy; Copyright 2023 by PDFsquare.</h5>
+    <h6>All Rights Reserved.</h6>
+  </div>
+
+</body>
+
+</html>
