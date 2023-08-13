@@ -24,7 +24,6 @@ from reportlab.pdfgen import canvas
 from io import BytesIO
 import aspose.slides as slides
 from tempfile import NamedTemporaryFile
-from django.core.mail import EmailMessage
 
 # website landing page / home page
 def home(request):
