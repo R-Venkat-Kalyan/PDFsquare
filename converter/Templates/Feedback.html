@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4481eb, #04befe);
+      margin: 0;
+      padding: 0;
+    }
+
+    .feedback-container {
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border: 2px solid #79ad18;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .feedback-container h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+      color: #4481eb;
+    }
+
+    .feedback-container label {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #333;
+    }
+
+    .feedback-container input[type="text"],
+    .feedback-container input[type="email"],
+    .feedback-container textarea,
+    .feedback-container select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #179607;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .feedback-container form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .feedback-container button {
+      background-color: #f8c10d;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .feedback-container button:hover {
+      background-color: #e0b90e;
+    }
+
+    /* Rating styles */
+    .rating {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .rating-label {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .rating-input {
+      width: 250px;
+      height: 10px;
+      -webkit-appearance: none;
+      background-color: #ccc;
+      border-radius: 5px;
+      outline: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .rating-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 25px;
+      height: 25px;
+      background-color: #f8c10d;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .rating-input::-webkit-slider-thumb:hover {
+      background-color: #e0b90e;
+    }
+
+    .rating-input::-webkit-slider-thumb:active {
+      background-color: #d62a9d;
+    }
+
+    .rating-value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #f8c10d;
+    }
+
+    /* Popup styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      text-align: center;
+    }
+  </style>
+  <title>Feedback Form</title>
+  {% load static %}
+  <link rel="shortcut icon" type="image/png" href="{% static 'images/logo0.png' %}">
+
+</head>
+
+<body>
+  <div class="feedback-container">
+    <h1>Feedback</h1>
+    <p align="center"><b>Dear user,</b><br>
+      <i> Thank you for using PDFsquare.com. We would like to know how we performed. Please spare some moments to
+        give us your valuable feedback as it will help us in improving our service.</i>
+    </p>
+
+    <br>
+    <form action="#" method="post" id="FeedbackForm">
+      {% csrf_token %}
+      <label for="question0">Enter your e-mail so that we can get back to you:</label>
+      <input type="email" id="question0" name="question0" placeholder="Your answer" required>
+      <br><br>
+      <label for="question1">How satisfied are you with the overall performance and functionality of
+        PDFsquare.com:</label>
+      <select id="question1" name="question1" required>
+        <option value="">Select satisfaction level</option>
+        <option value="Very Satisfied">Very Satisfied</option>
+        <option value="Satisfied">Neutral</option>
+        <option value="Neutral">Not Satisfied</option>
+      </select>
+      <br><br>
+      <label for="question2">What specific features or functionalities do you find most valuable in
+        PDFsquare.com:</label>
+      <select id="question2" name="question2" required>
+        <option value="">Select valuable features</option>
+        <option value="Feature 1">Working and Functionality</option>
+        <option value="Feature 2">Design and Appearnace</option>
+        <option value="Feature 3">Others</option>
+      </select>
+      <br><br>
+      <label for="question3">How can we improve PDFsquare to better meet your needs or enhance your user
+        experience:</label>
+      <input type="text" id="question3" name="question3" placeholder="Your answer" required>
+      <br><br>
+      <div class="rating">
+        <label for="rating" class="rating-label">Overall Rating:</label>
+        <input type="range" class="rating-input" id="rating" name="rating" min="1" max="5" value="1" step="1">
+        <span class="rating-value" id="rating-value">1</span>
+      </div>
+      <br><br>
+      <label for="feedback">Any other feedback:</label>
+      <textarea name="feedback" id="feedback" placeholder="Enter your feedback"></textarea>
+      <br><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <br><br>
+  <div>
+    {% include 'Copyright.html' %}
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-content">
+      <h2>Thank You!</h2>
+      <p>Your message has been sent successfully.</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+
+    emailjs.init("UxtwrUjD0ytg_cPsk");
+
+    const ratingInput = document.getElementById('rating');
+    const ratingValue = document.getElementById('rating-value');
+
+    ratingInput.addEventListener('input', () => {
+      ratingValue.textContent = ratingInput.value;
+    });
+
+    <!--    popup-->
+    function showPopup() {
+      document.getElementById("popupOverlay").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popupOverlay").style.display = "none";
+      document.getElementById("FeedbackForm").reset(); // Reset the form fields
+    }
+
+    document.getElementById("FeedbackForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
+      showPopup(); // Show the popup
+      // You can perform additional actions here, such as sending the form data to a server
+    });
+
+    function showLoadingIndicator() {
+      const submitButton = document.querySelector("button[type='submit']");
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
+
+    // Function to hide loading indicator and show the "Thank You" popup
+    function hideLoadingIndicator() {
+      const submitButton = document.querySelector("button[type='submit']");
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit";
+      showPopup(); // Show the "Thank You" popup after successful submission
+    }
+
+    document.getElementById("FeedbackForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
+      showLoadingIndicator(); // Show loading indicator
+
+      // Get the form data
+      const formData = new FormData(event.target);
+
+      // Prepare the email parameters
+      const emailParams = {
+        from_name: formData.get("question0"),
+        satisfaction_level: formData.get("question1"),
+        valuable_features: formData.get("question2"),
+        improve_feedback: formData.get("question3"),
+        overall_rating: formData.get("rating"),
+        additional_feedback: formData.get("feedback"),
+      };
+
+      // Send the email using EmailJS
+      emailjs.send("service_m9ra60o", "template_ftndbsf", emailParams)
+        .then(function (response) {
+          hideLoadingIndicator(); // Hide loading indicator and show the popup
+        }, function (error) {
+          alert("Failed to send message. Please try again later.");
+        });
+    });
+  </script>
+</body>
+
+</html>

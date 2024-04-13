@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Details</title>
+
+  <style>
+    html, body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    header {
+      background-color: #ff5733; /* Orange background */
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .student {
+      width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      border-radius: 10px;
+    }
+
+    .student-header {
+      text-align: center;
+      font-size: 24px;
+      color: #ff5733; /* Orange text color */
+    }
+
+    .student-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .student-info img {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 10px;
+      border: 2px solid #ff5733; /* Orange border */
+      border-radius: 50%;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .student-info p {
+      font-size: 18px;
+      margin: 5px 0;
+      color: #333; /* Dark text color */
+    }
+
+    .student-footer {
+      text-align: right;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Student Details</h1>
+  </header>
+
+  <main>
+    <!-- Your student details content goes here -->
+    <div class="student">
+      <div class="student-header">
+        <h2>Student Profile</h2>
+      </div>
+
+      <div class="student-info">
+        <img src="student-image.jpg" alt="Student Image">
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Student ID:</strong> 123456</p>
+        <p><strong>Program:</strong> Computer Science</p>
+        <p><strong>Batch:</strong> 2023</p>
+        <p><strong>Email:</strong> john.doe@example.com</p>
+      </div>
+
+      <div class="student-footer">
+        <p>Enrollment Date: September 1, 2023</p>
+        <p>Advisor: Dr. Jane Smith</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Student Information System</p>
+  </footer>
+
+  <script>
+    // Your JavaScript code goes here
+  </script>
+</body>
+</html>

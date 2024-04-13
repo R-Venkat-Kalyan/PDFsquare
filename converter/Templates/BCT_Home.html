@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ecertify</title>
+    <link href="https://unpkg.com/tailwindcss@^2.2.4/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Apply a reset to remove default margins and padding */
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Create a container div to hold the full-screen image */
+        .fullscreen-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Style the image to cover the entire viewport */
+        .fullscreen-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Style the left text container */
+        .left-text {
+            position: absolute;
+            top: 80px; /* Adjust the top position as needed */
+            left: 20px; /* Adjust the left position as needed */
+            padding: 20px;
+            /*background-color: rgba(0, 0, 0, 0.5);  Add a semi-transparent background */
+            color: #fff; /* Text color for the left text */
+            transition: background-color 0.3s; /* Add hover effect */
+        }
+
+        .left-text h1 {
+            font-size: 2.5rem; /* Larger font size */
+            font-weight: bold;
+        }
+
+        .left-text ul {
+            list-style: none; /* Remove default bullet points */
+            padding-left: 20px;
+            margin-top: 20px; /* Add space between header and list */
+        }
+
+        .left-text li {
+            font-size: 1.25rem; /* Adjust font size */
+            margin-bottom: 35px; /* Add space between items */
+        }
+
+        .left-text .icon {
+            margin-right: 10px; /* Add space between icon and text */
+        }
+
+        /* Style the navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /*background-color: rgba(0, 0, 0, 0.5); Add a semi-transparent background */
+            padding: 10px; /* Adjust the padding as needed */
+            color: #fff; /* Text color for the navbar links */
+        }
+
+        .login-button {
+            background-color: #3B82F6;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #34D399;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fullscreen-container">
+        {% load static %}
+        <img src="{% static '/images/Bc2.jpg' %}" alt="Full-Screen Image" class="fullscreen-image">
+        <div class="left-text">
+            <h1 class="text-4xl font-bold mb-4">Blockchain-Based Certificate Validation</h1>
+            <ul class="text-lg">
+                <li><i class="fas fa-shield icon"></i>Secure and tamper-proof certificate verification</li>
+                <li><i class="fas fa-check-circle icon"></i> Efficient and transparent validation process</li>
+                <li><i class="fas fa-clock icon"></i> Instant access to verified credentials</li>
+                <li><i class="fas fa-lock icon"></i> Enhanced trust in digital certificates</li>
+                <li><i class="fas fa-cubes icon"></i> Blockchain-powered verification technology</li>
+                <li><i class="fas fa-globe icon"></i> Immutable and decentralized validation</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a class="text-white text-xl font-semibold" href="#">
+                          {% load static %}
+                        <img class="h-8" src="{% static '/images/BCT_Logo.png' %}" alt="Logo">
+                    </a>
+                </div>
+                <div class="flex-grow">
+                    <ul class="flex justify-center space-x-4">
+                        <li><a class="text-white hover:text-pink-600" href="#">Home</a></li>
+                        <li><a class="text-white hover:text-pink-600" href="#">About Us</a></li>
+                        <li><a class="text-white hover:text-pink-600" href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <a href ="/log/">
+                    <button class="login-button text-white font-bold py-2 px-4 rounded-full">
+                        Login
+                    </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>
