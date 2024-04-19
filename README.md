@@ -32,7 +32,7 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 
 ## Don't Forget to Star!
 
-If you find PDF Square useful, please consider starring🥎✳ the repository to show your support.
+If you find PDF Square useful, please consider starring[✳] the repository to show your support.
 
 ## Live Access
 
